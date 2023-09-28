@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@id/navigation_card">
+
+    <fragment
+        android:id="@+id/navigation_chat"
+        android:name="com.crix.getup.ui.ChatFragment"
+        android:label="@string/title_chat"
+        tools:layout="@layout/fragment_chat" >
+        <action
+            android:id="@+id/action_navigation_chat_to_individualChatFragment"
+            app:destination="@id/individualChatFragment2" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_card"
+        android:name="com.crix.getup.ui.CardFragment"
+        android:label="@string/title_card"
+        tools:layout="@layout/fragment_card" />
+
+    <fragment
+        android:id="@+id/navigation_profile"
+        android:name="com.crix.getup.ui.ProfileFragment"
+        android:label="@string/title_profile"
+        tools:layout="@layout/fragment_profile" />
+    <fragment
+        android:id="@+id/individualChatFragment2"
+        android:name="com.crix.getup.IndividualChatFragment"
+        android:label="fragment_individual_chat"
+        tools:layout="@layout/fragment_individual_chat" />
+</navigation>
