@@ -4,10 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.ProfileFragment">
+    tools:context=".ui.mainnavigation.ProfileFragment">
 
     <ImageView
-        android:id="@+id/im_userImage"
+        android:id="@+id/imUserImage"
         android:layout_width="128dp"
         android:layout_height="128dp"
         android:layout_marginTop="32dp"
@@ -17,18 +17,18 @@
         tools:src="@tools:sample/avatars" />
 
     <TextView
-        android:id="@+id/tv_userName"
+        android:id="@+id/tvUserName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
         android:text="TextView"
         android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="@+id/im_userImage"
-        app:layout_constraintStart_toStartOf="@+id/im_userImage"
-        app:layout_constraintTop_toBottomOf="@+id/im_userImage" />
+        app:layout_constraintEnd_toEndOf="@+id/imUserImage"
+        app:layout_constraintStart_toStartOf="@+id/imUserImage"
+        app:layout_constraintTop_toBottomOf="@+id/imUserImage" />
 
     <Button
-        android:id="@+id/bt_editProfile"
+        android:id="@+id/btEditProfile"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="64dp"
@@ -37,10 +37,10 @@
         android:text="Edit Profile"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_userName" />
+        app:layout_constraintTop_toBottomOf="@+id/tvUserName" />
 
     <Button
-        android:id="@+id/bt_editPreferences"
+        android:id="@+id/btEditPreferences"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="64dp"
@@ -49,10 +49,10 @@
         android:text="Edit Preferences"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/bt_editProfile" />
+        app:layout_constraintTop_toBottomOf="@+id/btEditProfile" />
 
     <Button
-        android:id="@+id/bt_appSettings"
+        android:id="@+id/btAppSettings"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="64dp"
@@ -61,10 +61,10 @@
         android:text="App Settings"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/bt_editPreferences" />
+        app:layout_constraintTop_toBottomOf="@+id/btEditPreferences" />
 
     <Button
-        android:id="@+id/bt_sendFeedback"
+        android:id="@+id/btSendFeedback"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="64dp"
@@ -74,10 +74,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/bt_appSettings" />
+        app:layout_constraintTop_toBottomOf="@+id/btAppSettings" />
 
     <Button
-        android:id="@+id/bt_logout"
+        android:id="@+id/btLogout"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="64dp"
@@ -87,5 +87,5 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/bt_sendFeedback" />
+        app:layout_constraintTop_toBottomOf="@+id/btSendFeedback" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,4 +1,4 @@
-package com.crix.getup.ui
+package com.crix.getup.ui.mainnavigation
 
 import android.os.Bundle
 import android.view.LayoutInflater

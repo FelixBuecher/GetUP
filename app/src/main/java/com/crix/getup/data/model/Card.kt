@@ -1,5 +1,6 @@
 package com.crix.getup.data.model
 
 data class Card(
-    val title: String
+    val title: String,
+    val img: Int
 )

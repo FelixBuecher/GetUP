@@ -1,4 +1,4 @@
-package com.crix.getup
+package com.crix.getup.ui
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -42,10 +42,5 @@ class IndividualChatFragment : Fragment() {
             binding.tvMessageField.text.clear()
         }
 
-        requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner, object : OnBackPressedCallback(true) {
-            override fun handleOnBackPressed() {
-                findNavController().navigateUp()
-            }
-        })
     }
 }

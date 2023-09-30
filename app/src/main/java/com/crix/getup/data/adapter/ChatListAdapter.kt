@@ -2,19 +2,24 @@ package com.crix.getup.data.adapter
 
 import android.graphics.Color
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
 import com.crix.getup.data.model.Chat
 import com.crix.getup.databinding.ChatListItemBinding
-import com.crix.getup.ui.ChatFragmentDirections
+import com.crix.getup.ui.mainnavigation.ChatFragmentDirections
 import com.crix.getup.ui.viewmodel.UserViewModel
 
 class ChatListAdapter(
     private var chats: MutableList<Chat>,
     private val userViewModel: UserViewModel,
 ): RecyclerView.Adapter<ChatListAdapter.ChatListItemViewHolder>() {
+
+    init {
+        chats.sortBy { chat -> chat.messages.any { message -> message.seenBy.contains(userViewModel.loggedInUser.value?.userUUID) } }
+    }
 
     inner class ChatListItemViewHolder(val binding: ChatListItemBinding): ViewHolder(binding.root)
 
@@ -40,8 +45,7 @@ class ChatListAdapter(
 
             // If one of the messages received is unread, tint the card green
             if(chat.messages.any { !it.seenBy.contains(userViewModel.loggedInUser.value?.userUUID) }) {
-                // TODO: Change to custom color
-                binding.cvChatCard.setCardBackgroundColor(Color.GREEN)
+                binding.ivNotification.visibility = View.VISIBLE
             }
         }
 

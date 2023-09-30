@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/navigation_chat"
-        android:name="com.crix.getup.ui.ChatFragment"
+        android:name="com.crix.getup.ui.mainnavigation.ChatFragment"
         android:label="@string/title_chat"
         tools:layout="@layout/fragment_chat" >
         <action
@@ -17,18 +17,18 @@
 
     <fragment
         android:id="@+id/navigation_card"
-        android:name="com.crix.getup.ui.CardFragment"
+        android:name="com.crix.getup.ui.mainnavigation.CardFragment"
         android:label="@string/title_card"
         tools:layout="@layout/fragment_card" />
 
     <fragment
         android:id="@+id/navigation_profile"
-        android:name="com.crix.getup.ui.ProfileFragment"
+        android:name="com.crix.getup.ui.mainnavigation.ProfileFragment"
         android:label="@string/title_profile"
         tools:layout="@layout/fragment_profile" />
     <fragment
         android:id="@+id/individualChatFragment2"
-        android:name="com.crix.getup.IndividualChatFragment"
+        android:name="com.crix.getup.ui.IndividualChatFragment"
         android:label="fragment_individual_chat"
         tools:layout="@layout/fragment_individual_chat" />
 </navigation>
