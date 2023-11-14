@@ -1,6 +1,8 @@
 package com.crix.getup
 
+import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
@@ -10,40 +12,27 @@ import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.crix.getup.databinding.ActivityMainBinding
+import com.crix.getup.ui.auth.LoginActivity
+import com.crix.getup.ui.mainnavigation.HomeActivity
+import com.crix.getup.util.Auth
 
 class MainActivity : AppCompatActivity() {
 
-    private lateinit var binding: ActivityMainBinding
+    private var auth = Auth
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        binding = ActivityMainBinding.inflate(layoutInflater)
-        setContentView(binding.root)
-
-        val navView: BottomNavigationView = binding.navView
-        val toolbar: Toolbar = binding.toolbar
-
-        val navController = findNavController(R.id.nav_host_fragment_activity_main)
-
-        navController.addOnDestinationChangedListener { _, destination, _ ->
-            if(destination.id == R.id.individualChatFragment2) {
-                navView.visibility = View.GONE
+        auth.currentAppUser.observe(this) {
+            if (it != null) {
+                val intent = Intent(this, HomeActivity::class.java)
+                startActivity(intent)
+                finish()
             } else {
-                navView.visibility = View.VISIBLE
+                val intent = Intent(this, LoginActivity::class.java)
+                startActivity(intent)
+                finish()
             }
         }
-
-        val appBarConfiguration = AppBarConfiguration(
-            setOf(
-                R.id.navigation_card,
-                R.id.navigation_chat,
-                R.id.navigation_profile
-            )
-        )
-
-        toolbar.setupWithNavController(navController, appBarConfiguration)
-        navView.setupWithNavController(navController)
-        supportActionBar?.hide()
     }
 }

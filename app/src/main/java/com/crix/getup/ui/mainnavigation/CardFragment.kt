@@ -4,13 +4,14 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import com.crix.getup.databinding.FragmentCardBinding
 import com.crix.getup.ui.viewmodel.CardViewModel
-import com.crix.getup.util.swipe.SwipeAdapter
+import com.crix.getup.data.adapter.SwipeAdapter
 import com.crix.getup.util.swipe.SwipeStack
+
+val TAG = "CardFragment"
 
 class CardFragment : Fragment(), SwipeStack.SwipeStackListener {
 
@@ -27,28 +28,22 @@ class CardFragment : Fragment(), SwipeStack.SwipeStackListener {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        val swipeStack = binding.swipeStack
-        swipeStack.setListener(this)
+        binding.swipeStack.setListener(this)
         viewModel.cards.observe(viewLifecycleOwner) {
-            swipeStack.adapter = SwipeAdapter(viewModel.cards.value!!)
+            binding.swipeStack.adapter = SwipeAdapter(it)
         }
-
-
     }
 
     override fun onViewSwipedLeft(position: Int) {
-
+        viewModel.swipedLeft(position)
     }
 
     override fun onViewSwipedRight(position: Int) {
-
+        viewModel.swipedRight(position)
     }
 
     override fun onStackEmpty() {
-
-    }
-
-    override fun onStackNearEmpty() {
         viewModel.reloadCards()
+        binding.swipeStack.resetStack()
     }
 }

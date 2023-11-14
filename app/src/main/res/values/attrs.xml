@@ -2,7 +2,6 @@
 <resources>
     <declare-styleable name="SwipeStack">
         <attr name="animation_duration" format="integer"/>
-        <attr name="limit_amount" format="integer"/> <!-- Value is to know if there are less that limit cards left -->
         <attr name="stack_size" format="integer"/>
         <attr name="stack_spacing" format="dimension"/>
         <attr name="stack_rotation" format="integer"/>

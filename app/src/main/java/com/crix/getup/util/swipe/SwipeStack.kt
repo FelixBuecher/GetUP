@@ -9,6 +9,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Adapter
 import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.core.view.children
 import com.crix.getup.R
 import com.crix.getup.databinding.CardItemBinding
 import java.util.Random
@@ -27,7 +28,6 @@ class SwipeStack @JvmOverloads constructor(
     private var _numberOfStackedViews = 0
     private var _viewSpacing = 0
     private var _viewRotation = 0
-    private var _limitAmount = 0
     private var _swipeRotation = 0f
     private var _swipeOpacity = 0f
     private var _scaleFactor = 0f
@@ -56,8 +56,6 @@ class SwipeStack @JvmOverloads constructor(
         fun onViewSwipedRight(position: Int)
 
         fun onStackEmpty()
-
-        fun onStackNearEmpty()
     }
 
     interface SwipeProgressListener {
@@ -94,7 +92,6 @@ class SwipeStack @JvmOverloads constructor(
         const val DEFAULT_SCALE_FACTOR = 1f
         const val DEFAULT_SWIPE_OPACITY = 1f
         const val DEFAULT_DISABLE_HW_ACCELERATION = true
-        const val DEFAULT_LIMIT_AMOUNT = 2
         private const val KEY_SUPER_STATE = "superState"
         private const val KEY_CURRENT_INDEX = "currentIndex"
     }
@@ -196,10 +193,6 @@ class SwipeStack @JvmOverloads constructor(
             _numberOfStackedViews = attrs.getInt(
                 R.styleable.SwipeStack_stack_size,
                 DEFAULT_STACK_SIZE
-            )
-            _limitAmount = attrs.getInt(
-                R.styleable.SwipeStack_limit_amount,
-                DEFAULT_LIMIT_AMOUNT
             )
             _viewSpacing = attrs.getDimensionPixelSize(
                 R.styleable.SwipeStack_stack_spacing,
@@ -320,9 +313,6 @@ class SwipeStack @JvmOverloads constructor(
         }
         if (childCount == 0) {
             if (_listener != null) _listener!!.onStackEmpty()
-        }
-        if (childCount <= _limitAmount) {
-            if (_listener != null) _listener!!.onStackNearEmpty()
         }
     }
 }

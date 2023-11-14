@@ -18,7 +18,11 @@ class ChatListAdapter(
 ): RecyclerView.Adapter<ChatListAdapter.ChatListItemViewHolder>() {
 
     init {
-        chats.sortBy { chat -> chat.messages.any { message -> message.seenBy.contains(userViewModel.loggedInUser.value?.userUUID) } }
+        chats.sortBy {
+                chat -> chat.messages.any {
+                message -> message.seenBy.contains(userViewModel.loggedInUser.value?.userUUID)
+                }
+        }
     }
 
     inner class ChatListItemViewHolder(val binding: ChatListItemBinding): ViewHolder(binding.root)

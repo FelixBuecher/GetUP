@@ -6,7 +6,7 @@ import android.view.MotionEvent
 import android.view.View
 import android.view.View.OnTouchListener
 import android.view.animation.OvershootInterpolator
-import com.crix.getup.util.util.AnimationUtils
+import com.crix.getup.util.AnimationUtils
 import kotlin.math.abs
 import kotlin.math.max
 

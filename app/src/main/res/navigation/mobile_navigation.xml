@@ -19,7 +19,11 @@
         android:id="@+id/navigation_card"
         android:name="com.crix.getup.ui.mainnavigation.CardFragment"
         android:label="@string/title_card"
-        tools:layout="@layout/fragment_card" />
+        tools:layout="@layout/fragment_card" >
+        <action
+            android:id="@+id/action_navigation_card_to_cardDetailFragment"
+            app:destination="@id/cardDetailFragment" />
+    </fragment>
 
     <fragment
         android:id="@+id/navigation_profile"
@@ -28,7 +32,12 @@
         tools:layout="@layout/fragment_profile" />
     <fragment
         android:id="@+id/individualChatFragment2"
-        android:name="com.crix.getup.ui.IndividualChatFragment"
+        android:name="com.crix.getup.ui.chat.IndividualChatFragment"
         android:label="fragment_individual_chat"
         tools:layout="@layout/fragment_individual_chat" />
+    <fragment
+        android:id="@+id/cardDetailFragment"
+        android:name="com.crix.getup.ui.card.CardDetailFragment"
+        android:label="fragment_card_detail"
+        tools:layout="@layout/fragment_card_detail" />
 </navigation>

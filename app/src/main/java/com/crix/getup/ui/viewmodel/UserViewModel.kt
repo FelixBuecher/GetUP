@@ -3,7 +3,7 @@ package com.crix.getup.ui.viewmodel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.crix.getup.data.UserRepository
+import com.crix.getup.data.repository.UserRepository
 import com.crix.getup.data.model.AppUser
 import com.crix.getup.data.model.Chat
 import com.crix.getup.data.model.Message
@@ -27,7 +27,7 @@ class UserViewModel: ViewModel() {
     fun sendMessage(message: String) {
         currentChat.value?.messages?.add(
             Message(
-                messageUUID = UUID.randomUUID(),
+                messageUUID = UUID.randomUUID().toString(),
                 senderUUID = loggedInUser.value?.userUUID!!,
                 message = message,
                 sendTime = LocalDate.now(),

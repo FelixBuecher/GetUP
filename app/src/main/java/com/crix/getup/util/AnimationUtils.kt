@@ -1,4 +1,4 @@
-package com.crix.getup.util.util
+package com.crix.getup.util
 
 import android.animation.Animator
 
